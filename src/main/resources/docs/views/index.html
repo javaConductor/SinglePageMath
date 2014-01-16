@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html  ng-app="SinglePageMath">
+<head>
+    <script src="/js/angular/angular.js" type="text/javascript" onerror="console.dir(arguments)">
+    </script>
+    <script src="/js/angular/angular-resource.js" type="text/javascript" onerror="console.dir(arguments)">
+    </script>
+    <script src="/js/app/app.js" type="text/javascript" onerror="console.dir(arguments)">
+    </script>
+    <title>Single App Math</title>
+</head>
+<body ng-controller="MathController">
+
+<form novalidate >
+
+    <table>
+        <tr>
+            <td><input type="text" placeholder="Number" data-ng-model="number1"></td>
+            <td>
+                <select
+                        ng-model="operation"
+                        ng-options="op.symbol for op in operations"
+                        >
+                </select>
+            </td>
+            <td><input type="text" placeholder="Number" data-ng-model="number2"></td>
+        </tr>
+        <tr>
+            <td  colspan="3">
+                <input type="button" value="Compute" ng-click="doCompute()"  >
+            </td>
+
+        </tr>
+    </table>
+</form>
+<table width="100%">
+    <tr ng-init="answers=answers" ng-repeat="ans in answers" >
+        <th width="20%">{{$index+1}}</th>
+        <td width="80%">{{ans.message}}</td>
+    </tr>
+</table>
+
+</body>
+</html>
