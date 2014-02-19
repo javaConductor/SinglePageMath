@@ -7,7 +7,8 @@ import com.soulsys.g_serv.GServ
 class Main {
 
     static void main(String[] args){
-        GServ.http {
+        def gserv = new GServ()
+        gserv.http {
             useResourceDocs(true)
             get ("/", file("text/html","views/index.html" ))
             get ("/add/:num1/:num2"){ num1, num2 ->
